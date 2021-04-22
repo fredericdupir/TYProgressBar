@@ -55,15 +55,15 @@ open class TYProgressBar: UIView {
         }
     }
     
-    var pulsingGradientLayer: CAGradientLayer!  // Masking layer
-    var pulsingLayer: CAShapeLayer!
+    open var pulsingGradientLayer: CAGradientLayer!  // Masking layer
+    open var pulsingLayer: CAShapeLayer!
     
-    var trackLayer: CAShapeLayer!
+    open var trackLayer: CAShapeLayer!
     
-    var shapeGradientLayer: CAGradientLayer!    // masking layer
-    var shapeLayer: CAShapeLayer!
+    open var shapeGradientLayer: CAGradientLayer!    // masking layer
+    open var shapeLayer: CAShapeLayer!
     
-    lazy var progressLbl: UILabel = {
+    open lazy var progressLbl: UILabel = {
         let lbl = UILabel()
         lbl.textColor = textColor
         lbl.font = font
@@ -127,7 +127,7 @@ open class TYProgressBar: UIView {
         shapeLayer.transform = CATransform3DMakeRotation(-.pi/2, 0, 0, 1)
     }
     
-    func updateProgress() {
+    open func updateProgress() {
         shapeLayer.strokeEnd = CGFloat(progress)
         
         let intProgress = Int(progress*100)
@@ -150,7 +150,7 @@ open class TYProgressBar: UIView {
         }
     }
     
-    func startPulseAnimation() {
+    open func startPulseAnimation() {
         pulsingLayer.lineWidth = lineHeight
         
         let scaleXY = 1 + (lineHeight/100)
@@ -164,7 +164,7 @@ open class TYProgressBar: UIView {
         pulsingLayer.add(animation, forKey: "TYPulsing")
     }
     
-    func stopPulseAnimation() {
+    open func stopPulseAnimation() {
         pulsingLayer.lineWidth = 0
         pulsingLayer.removeAnimation(forKey: "TYPulsing")
     }
@@ -187,7 +187,7 @@ open class TYProgressBar: UIView {
         return gradientLayer
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 }
