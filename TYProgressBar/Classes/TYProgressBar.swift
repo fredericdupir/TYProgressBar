@@ -71,7 +71,7 @@ open class TYProgressBar: UIView {
         return lbl
     }()
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         
         pulsingGradientLayer = createGradientLayer(colors: gradients)  // Masking layer
