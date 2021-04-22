@@ -7,15 +7,15 @@
 
 import UIKit
 
-public class TYProgressBar: UIView {
+open class TYProgressBar: UIView {
     
-    public var trackColor: UIColor = #colorLiteral(red: 0.200000003, green: 0.200000003, blue: 0.200000003, alpha: 0.5) {
+    open var trackColor: UIColor = #colorLiteral(red: 0.200000003, green: 0.200000003, blue: 0.200000003, alpha: 0.5) {
         didSet {
             trackLayer.strokeColor = trackColor.cgColor
         }
     }
     
-    public var gradients: [UIColor] = [#colorLiteral(red: 0.7843137255, green: 0.4274509804, blue: 0.8431372549, alpha: 1), #colorLiteral(red: 0.1882352941, green: 0.137254902, blue: 0.6823529412, alpha: 1)] {
+    open var gradients: [UIColor] = [#colorLiteral(red: 0.7843137255, green: 0.4274509804, blue: 0.8431372549, alpha: 1), #colorLiteral(red: 0.1882352941, green: 0.137254902, blue: 0.6823529412, alpha: 1)] {
         didSet {
             let gradientColors = gradients.map { $0.cgColor }
             pulsingGradientLayer.colors = gradientColors
@@ -23,33 +23,33 @@ public class TYProgressBar: UIView {
         }
     }
     
-    public var lineHeight: CGFloat = 10 {
+    open var lineHeight: CGFloat = 10 {
         didSet {
             trackLayer.lineWidth = lineHeight
             shapeLayer.lineWidth = lineHeight
         }
     }
     
-    public var lineDashPattern: [NSNumber] = [1, 0] {  // lineWidth, lineGap
+    open var lineDashPattern: [NSNumber] = [1, 0] {  // lineWidth, lineGap
         didSet {
             trackLayer.lineDashPattern = lineDashPattern
             shapeLayer.lineDashPattern = lineDashPattern
         }
     }
     
-    public var textColor: UIColor = UIColor.white {
+    open var textColor: UIColor = UIColor.white {
         didSet {
             progressLbl.textColor = textColor
         }
     }
     
-    public var font: UIFont = UIFont(name: "HelveticaNeue-Medium", size: 22)! {
+    open var font: UIFont = UIFont(name: "HelveticaNeue-Medium", size: 22)! {
         didSet {
             progressLbl.font = font
         }
     }
     
-    public var progress: Double = 0 {
+    open var progress: Double = 0 {
         didSet {
             updateProgress()
         }
